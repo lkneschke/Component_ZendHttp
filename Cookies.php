@@ -183,10 +183,11 @@ class Cookies extends Headers
 
         // Next, run Cookie->match on all cookies to check secure, time and session matching
         $ret = array();
-        foreach ($cookies as $cookie)
-            if ($cookie->match($uri, $matchSessionCookies, $now))
+        foreach ($cookies as $cookie) {
+            if ($cookie->match($uri, $matchSessionCookies, $now)) {
                 $ret[] = $cookie;
-
+            }
+        }
         // Now, use self::_flattenCookiesArray again - only to convert to the return format ;)
         $ret = $this->_flattenCookiesArray($ret, $retAs);
 
@@ -218,7 +219,9 @@ class Cookies extends Headers
         // Get correct cookie path
         $path = $uri->getPath();
         $path = substr($path, 0, strrpos($path, '/'));
-        if (! $path) $path = '/';
+        if (! $path) {
+            $path = '/';
+        }
 
         if (isset($this->cookies[$uri->getHost()][$path][$cookieName])) {
             $cookie = $this->cookies[$uri->getHost()][$path][$cookieName];
@@ -329,7 +332,7 @@ class Cookies extends Headers
 
     /**
      * Create a new Cookies object and automatically load into it all the
-     * cookies set in a Response object. If $uri is set, it will be
+     * cookies set in an Http_Response object. If $uri is set, it will be
      * considered as the requested URI for setting default domain and path
      * of the cookie.
      *
