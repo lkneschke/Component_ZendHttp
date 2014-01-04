@@ -11,7 +11,6 @@ namespace Zend\Http;
 
 use ArrayIterator;
 use Zend\Http\Header\SetCookie;
-use Zend\Http\Response;
 use Zend\Uri;
 
 
@@ -332,7 +331,7 @@ class Cookies extends Headers
 
     /**
      * Create a new Cookies object and automatically load into it all the
-     * cookies set in a Response object. If $uri is set, it will be
+     * cookies set in an Http_Response object. If $uri is set, it will be
      * considered as the requested URI for setting default domain and path
      * of the cookie.
      *
