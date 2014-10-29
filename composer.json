@@ -14,10 +14,10 @@
     "target-dir": "Zend/Http",
     "require": {
         "php": ">=5.3.3",
-        "zendframework/zend-loader": "2.2.8",
-        "zendframework/zend-stdlib": "2.2.8",
-        "zendframework/zend-uri": "2.2.8",
-        "zendframework/zend-validator": "2.2.8"
+        "zendframework/zend-loader": "2.2.*",
+        "zendframework/zend-stdlib": "2.2.*",
+        "zendframework/zend-uri": "2.2.*",
+        "zendframework/zend-validator": "2.2.*"
     },
     "extra": {
         "branch-alias": {
