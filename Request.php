@@ -82,6 +82,7 @@ class Request extends AbstractMessage implements RequestInterface
             self::METHOD_PUT, self::METHOD_DELETE, self::METHOD_TRACE, self::METHOD_CONNECT,
             self::METHOD_PATCH, self::METHOD_PROPFIND
         ));
+        $methods = '\w+';
         $regex     = '#^(?P<method>' . $methods . ')\s(?P<uri>[^ ]*)(?:\sHTTP\/(?P<version>\d+\.\d+)){0,1}#';
         $firstLine = array_shift($lines);
         if (!preg_match($regex, $firstLine, $matches)) {
@@ -137,9 +138,9 @@ class Request extends AbstractMessage implements RequestInterface
     public function setMethod($method)
     {
         $method = strtoupper($method);
-        if (!defined('static::METHOD_' . $method)) {
-            throw new Exception\InvalidArgumentException('Invalid HTTP method passed');
-        }
+        #if (!defined('static::METHOD_' . $method)) {
+        #    throw new Exception\InvalidArgumentException('Invalid HTTP method passed');
+        #}
         $this->method = $method;
         return $this;
     }
